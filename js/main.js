@@ -28,6 +28,7 @@
     (function init(){
         //初期化
         //コンテナ生成
+        console.log("********** init!! **********");
         var _baseX=areaWidth*0.5;
         var _baseY=areaHeight*0.5;
         var _i=0;
