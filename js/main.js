@@ -43,7 +43,8 @@
         //ボタン設定
         $linkBtn.on("click",function(e){
             e.preventDefault();   
-            startAnimation(linkURLs[$(e.currentTarget).index()]); 
+            console.log(e.pageX,e.pageY);
+            startAnimation(linkURLs[$(e.currentTarget).index()],e.pageX,e.pageY); 
         });
         //星の画像を読み込み
         loadItems();
@@ -98,14 +99,14 @@
         //startAnimation();
     }
     
-    function startAnimation(_linkURL){
+    function startAnimation(_linkURL,_x,_y){
         var _i=0;
         var _l=NUM_TOTAL_CLUSTER;
         var _tl=new TimelineLite();
         var _$item;
-        console.log(_linkURL);
+        //console.log(_linkURL);
         //$starsを表示
-        $stars.css({"display":"block"});
+        $stars.css({"left":(_x-$stars.width())*0.5,"top":(_y-$stars.height())*0.5,"display":"block"});
         
         for(_i;_i<_l;_i++){
             _$item=clusters[_i]
